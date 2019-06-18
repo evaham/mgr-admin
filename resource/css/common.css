@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* reset */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button { margin: 0; padding: 0; }
+
+fieldset, img { border: 0 none; }
+
+dl, ul, ol, menu, li { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+input, select, textarea, button { vertical-align: middle; }
+
+button { border: 0 none; background-color: transparent; cursor: pointer; }
+
+body { background: #fff; }
+
+body, th, td, input, select, textarea, button { font-size: 14px; line-height: 1.5; font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; color: #333; }
+
+a { color: #333; text-decoration: none; }
+
+a:active, a:hover { text-decoration: underline; }
+
+address, caption, cite, code, dfn, em, var { font-style: normal; font-weight: normal; }
+
+/** height100% 처리 **/
+* { box-sizing: border-box; }
+
+html, body { overflow: hidden; height: 100%; margin: 0; }
+
+/** 전역사용 **/
+.text_left { text-align: left !important; }
+
+.text_center { text-align: center !important; }
+
+.text_right { text-align: right !important; }
+
+.wrap { position: relative; width: 800px; height: 100%; margin: 0 auto; background: #ddd; }
+
+.side { position: absolute; top: 0; bottom: 0; float: left; width: 180px; border: 1px solid #ddd; background: #999; }
+
+.container { position: absolute; top: 0; left: 180px; width: 620px; margin: 10px 0; }
+
+.logo__wrap { height: 80px; border-bottom: 1px solid #333; }
+
+.nav__list > li { display: block; }
+
+.nav__sublist > li { display: block; }
+
+.cont__wrap { display: block; margin: 0 10px; padding: 5px 10px; background: #fff; }
+
+.cont__tit { position: relative; margin: 10px 0; font-weight: bolder; }
+
+.cont__tbl { width: 100%; border-spacing: 0; border-collapse: collapse; }
+
+.cont__tbl > thead > tr > th { padding: 6px; font-weight: normal; background: #fafafa; }
+
+.cont__tbl > tbody > tr > td { padding: 6px; border: 1px solid #ddd; }
+
+.help__wrap { display: inline-block; vertical-align: top; }
+
+.help__icon .material-icons { font-size: 20px; vertical-align: top; }
+
+.help__txt { display: none; position: absolute; border: 1px solid #ddd; padding: 10px; background: #fff; }
