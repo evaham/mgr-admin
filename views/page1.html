@@ -12,17 +12,26 @@
     <div class="wrap">
         <div class="side">
             <div class="logo__wrap">
-                <span class="logo__img"></span>
+                <span class="logo__ico"></span>
                 <span class="logo__tit">매장앱관리</span>
             </div>
             <div class="nav__wrap">
                 <ul class="nav__list">
-                    <li class="active">MPOS</li>
                     <li>
-                        핸드터미널
+                        <a href="#" class="nav__link">MPOS</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="nav__link">핸드터미널</a>
                         <ul class="nav__sublist">
-                            <li>핸드터미널관리</li>
-                            <li>기기관리</li>
+                            <li class="active"><a href="#" class="nav__sublink">핸드터미널관리</a></li>
+                            <li><a href="#" class="nav__sublink">기기관리</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="nav__link">핸드터미널</a>
+                        <ul class="nav__sublist">
+                            <li class=""><a href="#" class="nav__sublink">핸드터미널관리</a></li>
+                            <li><a href="#" class="nav__sublink">기기관리</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -31,7 +40,12 @@
         <div class="container">
             <div class="cont__wrap">
                 <p class="cont__tit">MPOS 이용현황</p>
-                <table class="cont__tbl">
+                <table class="tbl__comm">
+                    <colgroup>
+                        <col style="width:50%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                    </colgroup>
                     <thead>
                         <tr>
                             <th>서비스 타입</th>
@@ -41,17 +55,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>무료서비스이용중</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td class="text_center">무료 서비스 이용중</td>
+                            <td class="text_center">2019-06-01</td>
+                            <td class="text_center">2020-08-01</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="cont__wrap">
+
                 <hr class="cont__hr cont__hr--noline" />
-                <p class="cont__tit">
-                    직원 권한 설정
+                <p class="cont__tit">직원 권한 설정
                     <span class="help__wrap">
                         <span class="help__icon">
                             <i class="material-icons">help_outline</i>
@@ -62,7 +74,13 @@
                         </span>
                     </span>
                 </p>
-                <table class="cont__tbl">
+                <table class="tbl__comm tbl__comm--small">
+                    <colgroup>
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                    </colgroup>
                     <thead>
                         <tr>
                             <th>이름</th>
@@ -73,62 +91,93 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>황정수</td>
-                            <td>2</td>
-                            <td>
-                                <div class="checkbox__wrap">
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <label class="toggle__comm">
+                                    <input type="checkbox" checked="checked" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text_center">
+                                <label class="checkbox__comm">
+                                    <input type="checkbox" />
+                                    <span>체크박스이미지</span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <label class="toggle__comm">
+                                    <input type="checkbox" checked="checked" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text_center">
+                                <label class="toggle__comm">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <label class="toggle__comm">
+                                    <input type="checkbox" checked="checked" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text_center">
+                                <label class="toggle__comm">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <label class="toggle__comm">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text_center">
+                                <div class="checkbox__comm">
                                     <input type="checkbox" />
                                     <label></label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>유지민</td>
-                            <td>5</td>
-                            <td>
-                                <div class="checkbox__wrap">
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <label class="toggle__comm">
                                     <input type="checkbox" />
-                                    <label></label>
-                                </div>
+                                    <span></span>
+                                </label>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>유지민</td>
-                            <td>5</td>
-                            <td>
-                                <div class="checkbox__wrap">
+                            <td class="text_center">
+                                <label class="toggle__comm">
                                     <input type="checkbox" />
-                                    <label></label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>유지민</td>
-                            <td>5</td>
-                            <td>
-                                <div class="checkbox__wrap">
-                                    <input type="checkbox" />
-                                    <label></label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>유지민</td>
-                            <td>5</td>
-                            <td>
-                                <div class="checkbox__wrap">
-                                    <input type="checkbox" />
-                                    <label></label>
-                                </div>
+                                    <span></span>
+                                </label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="cont__wrap">
-                <button class="cont__btn">저장</button>
+                <div class="btn__wrap text_center">
+                    <button class="btn__comm">저장</button>
+                </div>
             </div>
         </div>
+        <div class="footer"></div>
     </div>
 </body>
 </html>

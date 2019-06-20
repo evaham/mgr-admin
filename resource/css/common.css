@@ -16,7 +16,7 @@ button { border: 0 none; background-color: transparent; cursor: pointer; }
 
 body { background: #fff; }
 
-body, th, td, input, select, textarea, button { font-size: 14px; line-height: 1.5; font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; color: #333; }
+body, th, td, input, select, textarea, button { font-size: 14px; line-height: 1.2; font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; color: #333; }
 
 a { color: #333; text-decoration: none; }
 
@@ -24,10 +24,17 @@ a:active, a:hover { text-decoration: underline; }
 
 address, caption, cite, code, dfn, em, var { font-style: normal; font-weight: normal; }
 
+/* 크기제한 */
+/* 초안색상 opencolor를 참고 */
+/* side 색상처리 */
+/* container 색상처리 */
+/* btn 색상 */
+/* table 색상 */
+/* 박스 그림자 속성 */
 /** height100% 처리 **/
 * { box-sizing: border-box; }
 
-html, body { overflow: hidden; height: 100%; margin: 0; }
+html, body { height: 100%; margin: 0; }
 
 /** 전역사용 **/
 .text_left { text-align: left !important; }
@@ -36,30 +43,124 @@ html, body { overflow: hidden; height: 100%; margin: 0; }
 
 .text_right { text-align: right !important; }
 
-.wrap { position: relative; width: 800px; height: 100%; margin: 0 auto; background: #ddd; }
+.wrap { overflow: hidden; position: relative; min-height: 100%; margin: 0; background: #f1f3f5; }
 
-.side { position: absolute; top: 0; bottom: 0; float: left; width: 180px; border: 1px solid #ddd; background: #999; }
+.side { position: absolute; top: 0; bottom: 0; width: 150px; background: #adb5bd; }
 
-.container { position: absolute; top: 0; left: 180px; width: 620px; margin: 10px 0; }
+.container { width: 550px; margin: 10px 0; margin-left: 150px; }
 
-.logo__wrap { height: 80px; border-bottom: 1px solid #333; }
+.footer { display: none; position: absolute; bottom: 0; background: #333; height: 50px; }
 
-.nav__list > li { display: block; }
+.btn__comm { display: inline-block; margin: 15px 0; padding: 6px 12px; border: 1px solid #868e96; border-radius: 3px; background: #868e96; color: #fff; transition: all .1s ease; }
+
+.btn__comm:hover { background: #adb5bd; border-color: #adb5bd; text-decoration: none; }
+
+.btn__comm:active { background: #495057; }
+
+.tbl__comm { width: 100%; border-spacing: 0; border-collapse: collapse; }
+
+.tbl__comm > thead > tr > th { padding: 8px 6px; border: 1px solid #dee2e6; font-size: 13px; font-weight: normal; background: #f8f9fa; color: #777; }
+
+.tbl__comm > tbody > tr > td { padding: 12px 6px; border: 1px solid #dee2e6; }
+
+.tbl__comm--small > thead > tr > th { padding: 8px 6px; }
+
+.tbl__comm--small > tbody > tr > td { padding: 8px 6px; }
+
+.checkbox234__comm input[type="checkbox"] { display: none; }
+
+.checkbox234__comm input[type="checkbox"] + label span { display: inline-block; width: 19px; height: 19px; margin: -2px 10px 0 0; vertical-align: middle; background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/heck_radio_sheet.png) left top no-repeat; cursor: pointer; }
+
+.checkbox234__comm input[type="checkbox"]:checked + label span { background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -19px top no-repeat; }
+
+.checkbox234__comm input[type="radio"] { display: none; }
+
+.checkbox234__comm input[type="radio"] + label span { display: inline-block; width: 19px; height: 19px; margin: -2px 10px 0 0; vertical-align: middle; background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -38px top no-repeat; cursor: pointer; }
+
+.checkbox234__comm input[type="radio"]:checked + label span { background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -57px top no-repeat; }
+
+/** 이미지 체크박스,라디오버튼 font-size 14px line-height 1.2 기준 **/
+.checkbox__comm { display: inline-block; font-size: 14px; cursor: pointer; }
+
+.checkbox__comm input[type="checkbox"] { display: none; }
+
+.checkbox__comm input[type="checkbox"] + span { display: inline-block; overflow: hidden; border: 1px solid #333; width: 10px; height: 10px; text-indent: -9999px; }
+
+.checkbox__comm input[type="checkbox"]:checked + span { display: inline-block; border: 1px solid #de0303; width: 10px; height: 10px; }
+
+.checkbox__comm input[type="checkbox"]:disabled + span { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+
+.radio__comm { display: inline-block; font-size: 14px; cursor: pointer; }
+
+.radio__comm input[type="radio"] { display: none; }
+
+.radio__comm input[type="radio"] + span { display: inline-block; overflow: hidden; border: 1px solid #333; width: 10px; height: 10px; text-indent: -9999px; }
+
+.radio__comm input[type="radio"]:checked + span { display: inline-block; border: 1px solid #de0303; width: 10px; height: 10px; }
+
+.radio__comm input[type="radio"]:disabled + span { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+
+/** CSS3를 사용하여 ie9이상사용가능 추후 이미지 구현방법 검토 **/
+.toggle__comm { display: inline-block; outline: 0; line-height: 1; }
+
+.toggle__comm input[type="checkbox"] { display: none; }
+
+.toggle__comm input[type="checkbox"] + span { display: inline-block; position: relative; width: 40px; height: 20px; padding: 2px; border-radius: 13px; background: #ced4da; cursor: pointer; user-select: none; transition: all .4s ease; }
+
+.toggle__comm input[type="checkbox"] + span:after { content: ""; display: block; position: relative; width: 50%; height: 100%; left: 0; border-radius: 13px; background: #fff; transition: all .2s ease; }
+
+.toggle__comm input[type="checkbox"] + span:before { display: none; }
+
+.toggle__comm input[type="checkbox"]:checked + span { background: #868e96; }
+
+.toggle__comm input[type="checkbox"]:checked + span:after { left: 50%; }
+
+.toggle__comm input[type="checkbox"]:disabled + span { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+
+.logo__wrap { padding: 20px 10px; background: #adb5bd; }
+
+.logo__tit { font-size: 16px; font-weight: bolder; }
+
+.logo__ico { display: inline-block; width: 18px; height: 18px; background: #fff; vertical-align: top; }
+
+.nav__list { border-bottom: 1px solid #868e96; background: #adb5bd; }
+
+.nav__list > li { display: block; border-top: 1px solid #868e96; }
+
+.nav__sublist { padding: 5px 0; border-top: 1px solid #868e96; background: #868e96; }
 
 .nav__sublist > li { display: block; }
 
-.cont__wrap { display: block; margin: 0 10px; padding: 5px 10px; background: #fff; }
+.nav__link { display: block; padding: 8px; text-decoration: none; transition: all .1s ease; cursor: pointer; }
 
-.cont__tit { position: relative; margin: 10px 0; font-weight: bolder; }
+.nav__link:hover, .nav__link:active { background: #ced4da; text-decoration: none; }
 
-.cont__tbl { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.nav__sublink { display: block; padding: 5px 8px 5px 30px; font-size: 13px; text-decoration: none; transition: all .1s ease; cursor: pointer; }
 
-.cont__tbl > thead > tr > th { padding: 6px; font-weight: normal; background: #fafafa; }
+.nav__sublink:hover, .nav__sublink:active { font-weight: bolder; text-decoration: none; }
 
-.cont__tbl > tbody > tr > td { padding: 6px; border: 1px solid #ddd; }
+.nav__list > li.active > .nav__link { background: #f1f3f5 !important; }
+
+.nav__list > li.active > .nav__sublist { background: #dee2e6 !important; }
+
+.nav__sublist > li.active > .nav__sublink { font-weight: bolder; }
+
+.cont__wrap { display: block; margin: 0 10px; padding: 1px 15px; border: 1px solid #ced4da; border-radius: 3px; background: #fff; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); }
+
+.cont__tit { position: relative; margin: 15px 0 10px; font-weight: bolder; }
+
+.cont__tit:before { content: ''; display: inline-block; width: 3px; height: 10px; margin-right: 5px; background: #888; }
+
+.cont__hr { margin: 15px 0; border: none; height: 1px; background: #dee2e6; }
+
+.cont__hr--noline { background: none; }
 
 .help__wrap { display: inline-block; vertical-align: top; }
 
-.help__icon .material-icons { font-size: 20px; vertical-align: top; }
+.help__icon { cursor: pointer; }
 
-.help__txt { display: none; position: absolute; border: 1px solid #ddd; padding: 10px; background: #fff; }
+.help__icon .material-icons { font-size: 18px; vertical-align: top; }
+
+.help__txt { display: none; position: absolute; margin: 10px 0 0 -20px; padding: 10px; border: 1px solid #ced4da; border-radius: 3px; font-size: 13px; font-weight: normal; background: #fff; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); z-index: 10; }
+
+.help__wrap:hover .help__txt { display: block !important; }
