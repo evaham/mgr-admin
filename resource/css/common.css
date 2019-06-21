@@ -31,6 +31,7 @@ address, caption, cite, code, dfn, em, var { font-style: normal; font-weight: no
 /* btn 색상 */
 /* table 색상 */
 /* 박스 그림자 속성 */
+/* 아이콘이미지 */
 /** height100% 처리 **/
 * { box-sizing: border-box; }
 
@@ -45,17 +46,17 @@ html, body { height: 100%; margin: 0; }
 
 .wrap { overflow: hidden; position: relative; min-height: 100%; margin: 0; background: #f1f3f5; }
 
-.side { position: absolute; top: 0; bottom: 0; width: 150px; background: #adb5bd; }
+.side { position: absolute; top: 0; bottom: 0; width: 150px; background: #ced4da; }
 
 .container { width: 550px; margin: 10px 0; margin-left: 150px; }
 
 .footer { display: none; position: absolute; bottom: 0; background: #333; height: 50px; }
 
-.btn__comm { display: inline-block; margin: 15px 0; padding: 6px 12px; border: 1px solid #868e96; border-radius: 3px; background: #868e96; color: #fff; transition: all .1s ease; }
+.btn__comm { display: inline-block; margin: 15px 0; padding: 6px 12px; border: 1px solid rgba(0, 0, 0, 0.3); border-bottom-width: 3px; border-radius: 2px; background: #868e96; color: #fff; transition: all .1s ease; }
 
-.btn__comm:hover { background: #adb5bd; border-color: #adb5bd; text-decoration: none; }
+.btn__comm:hover { background: #adb5bd; text-decoration: none; }
 
-.btn__comm:active { background: #495057; }
+.btn__comm:active { border-top-width: 3px; border-bottom-width: 1px; }
 
 .tbl__comm { width: 100%; border-spacing: 0; border-collapse: collapse; }
 
@@ -80,68 +81,96 @@ html, body { height: 100%; margin: 0; }
 .checkbox234__comm input[type="radio"]:checked + label span { background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -57px top no-repeat; }
 
 /** 이미지 체크박스,라디오버튼 font-size 14px line-height 1.2 기준 **/
-.checkbox__comm { display: inline-block; font-size: 14px; cursor: pointer; }
+/** ie8에서 선택자 문제로 인하여 .checked 와 .desabled를 추가 **/
+.checkbox__comm { display: inline-block; font-size: 14px; }
 
 .checkbox__comm input[type="checkbox"] { display: none; }
 
-.checkbox__comm input[type="checkbox"] + span { display: inline-block; overflow: hidden; border: 1px solid #333; width: 10px; height: 10px; text-indent: -9999px; }
+.checkbox__comm input[type="checkbox"] + label { cursor: pointer; }
 
-.checkbox__comm input[type="checkbox"]:checked + span { display: inline-block; border: 1px solid #de0303; width: 10px; height: 10px; }
+.checkbox__comm input[type="checkbox"] + label > i { display: inline-block; overflow: hidden; width: 14px; height: 14px; margin-top: 1px; margin-right: 3px; background: url(../img/img_icon_v1.png) no-repeat -10px -10px; vertical-align: top; text-indent: -9999px; }
 
-.checkbox__comm input[type="checkbox"]:disabled + span { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+.checkbox__comm input[type="checkbox"]:checked + label > i, .checkbox__comm input[type="checkbox"].checked + label > i { background-position: -40px -10px; }
 
-.radio__comm { display: inline-block; font-size: 14px; cursor: pointer; }
+.checkbox__comm input[type="checkbox"]:disabled + label, .checkbox__comm input[type="checkbox"].disable + label { color: #a9a9a9; }
+
+.checkbox__comm input[type="checkbox"]:disabled + label > i, .checkbox__comm input[type="checkbox"].disable + label > i { background-position: -70px -10px; }
+
+.checkbox__comm input[type="checkbox"]:checked:disabled + label > i { background-position: -100px -10px; }
+
+.radio__comm { display: inline-block; font-size: 14px; }
 
 .radio__comm input[type="radio"] { display: none; }
 
-.radio__comm input[type="radio"] + span { display: inline-block; overflow: hidden; border: 1px solid #333; width: 10px; height: 10px; text-indent: -9999px; }
+.radio__comm input[type="radio"] + label { cursor: pointer; }
 
-.radio__comm input[type="radio"]:checked + span { display: inline-block; border: 1px solid #de0303; width: 10px; height: 10px; }
+.radio__comm input[type="radio"] + label > i { display: inline-block; overflow: hidden; width: 14px; height: 14px; margin-top: 1px; margin-right: 3px; background: url(../img/img_icon_v1.png) no-repeat -130px -10px; vertical-align: top; text-indent: -9999px; }
 
-.radio__comm input[type="radio"]:disabled + span { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+.radio__comm input[type="radio"]:checked + label > i, .radio__comm input[type="radio"].checked + label > i { background-position: -160px -10px; }
+
+.radio__comm input[type="radio"]:disabled + label, .radio__comm input[type="radio"].disable + label { color: #a9a9a9; }
+
+.radio__comm input[type="radio"]:disabled + label > i, .radio__comm input[type="radio"].disable + label > i { background-position: -190px -10px; }
+
+.radio__comm input[type="radio"]:checked:disabled + label > i { background-position: -220px -10px; }
 
 /** CSS3를 사용하여 ie9이상사용가능 추후 이미지 구현방법 검토 **/
+.toggle__comm2 { display: inline-block; outline: 0; line-height: 1; }
+
+.toggle__comm2 input[type="checkbox"] { display: none; }
+
+.toggle__comm2 input[type="checkbox"] + span { display: inline-block; position: relative; width: 40px; height: 20px; padding: 2px; border-radius: 13px; background: #ced4da; cursor: pointer; user-select: none; transition: all .4s ease; }
+
+.toggle__comm2 input[type="checkbox"] + span:after { content: ""; display: block; position: relative; width: 50%; height: 100%; left: 0; border-radius: 13px; background: #fff; transition: all .2s ease; }
+
+.toggle__comm2 input[type="checkbox"] + span:before { display: none; }
+
+.toggle__comm2 input[type="checkbox"]:checked + span { background: #868e96; }
+
+.toggle__comm2 input[type="checkbox"]:checked + span:after { left: 50%; }
+
+.toggle__comm2 input[type="checkbox"]:disabled + span { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+
 .toggle__comm { display: inline-block; outline: 0; line-height: 1; }
 
 .toggle__comm input[type="checkbox"] { display: none; }
 
-.toggle__comm input[type="checkbox"] + span { display: inline-block; position: relative; width: 40px; height: 20px; padding: 2px; border-radius: 13px; background: #ced4da; cursor: pointer; user-select: none; transition: all .4s ease; }
+.toggle__comm input[type="checkbox"] + label { display: inline-block; position: relative; width: 40px; height: 20px; padding: 2px; border-radius: 13px; background: #ced4da; cursor: pointer; user-select: none; transition: all .4s ease; }
 
-.toggle__comm input[type="checkbox"] + span:after { content: ""; display: block; position: relative; width: 50%; height: 100%; left: 0; border-radius: 13px; background: #fff; transition: all .2s ease; }
+.toggle__comm input[type="checkbox"] + label:after { content: ""; display: block; position: relative; width: 50%; height: 100%; left: 0; border-radius: 13px; background: #fff; transition: all .2s ease; }
 
-.toggle__comm input[type="checkbox"] + span:before { display: none; }
+.toggle__comm input[type="checkbox"] + label:before { display: none; }
 
-.toggle__comm input[type="checkbox"]:checked + span { background: #868e96; }
+.toggle__comm input[type="checkbox"]:checked + label { background: #868e96; }
 
-.toggle__comm input[type="checkbox"]:checked + span:after { left: 50%; }
+.toggle__comm input[type="checkbox"]:checked + label:after { left: 50%; }
 
-.toggle__comm input[type="checkbox"]:disabled + span { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+.toggle__comm input[type="checkbox"]:disabled + label { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
 
-.logo__wrap { padding: 20px 10px; background: #adb5bd; }
+.logo__wrap { display: block; padding: 20px 10px; background: rgba(0, 0, 0, 0.4); }
 
-.logo__tit { font-size: 16px; font-weight: bolder; }
+.logo__tit { font-size: 16px; font-weight: bolder; color: #fff; }
 
 .logo__ico { display: inline-block; width: 18px; height: 18px; background: #fff; vertical-align: top; }
 
-.nav__list { border-bottom: 1px solid #868e96; background: #adb5bd; }
+.nav__list { border-bottom: 1px solid rgba(0, 0, 0, 0.1); background: #ced4da; }
 
-.nav__list > li { display: block; border-top: 1px solid #868e96; }
+.nav__list > li { display: block; border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
-.nav__sublist { padding: 5px 0; border-top: 1px solid #868e96; background: #868e96; }
+.nav__sublist { display: block; background: rgba(0, 0, 0, 0.1); }
 
 .nav__sublist > li { display: block; }
 
-.nav__link { display: block; padding: 8px; text-decoration: none; transition: all .1s ease; cursor: pointer; }
+.nav__link { display: block; padding: 8px; padding-left: 20px; text-decoration: none; transition: all .1s ease; cursor: pointer; }
 
-.nav__link:hover, .nav__link:active { background: #ced4da; text-decoration: none; }
+.nav__link:hover, .nav__link:active { background: #dee2e6; text-decoration: none; }
 
-.nav__sublink { display: block; padding: 5px 8px 5px 30px; font-size: 13px; text-decoration: none; transition: all .1s ease; cursor: pointer; }
+.nav__sublink { display: block; padding: 8px; padding-left: 35px; font-size: 13px; text-decoration: none; transition: all .1s ease; cursor: pointer; }
 
-.nav__sublink:hover, .nav__sublink:active { font-weight: bolder; text-decoration: none; }
+.nav__sublink:hover, .nav__sublink:active { background: #dee2e6; text-decoration: none; }
 
-.nav__list > li.active > .nav__link { background: #f1f3f5 !important; }
-
-.nav__list > li.active > .nav__sublist { background: #dee2e6 !important; }
+/*.nav__list > li.active {background:$side_active !important}*/
+.nav__list > li.active > .nav__link { font-weight: bolder; background: #f1f3f5 !important; }
 
 .nav__sublist > li.active > .nav__sublink { font-weight: bolder; }
 

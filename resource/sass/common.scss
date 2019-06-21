@@ -33,19 +33,19 @@ $gray9:#212529;
 
 
 /* side 색상처리 */
-$side_bg:$gray5;
-$side_line:$gray6;
+$side_bg:$gray4;
+$side_line:rgba(0,0,0,0.1);
 $side_active:$gray1;
-$side_hover:$gray4;
-$side_sublist:$gray5;
-$side_logo:$gray5;
+$side_hover:$gray3;
+$side_sublist:rgba(0,0,0,0.1);
+$side_logo:rgba(0,0,0,0.4);
 
 /* container 색상처리 */
 $cont_bg:$gray3;
 $cont_hr:$gray3;
 
 /* btn 색상 */
-$btn_line:$gray6;
+$btn_line:rgba(0,0,0,0.3);
 $btn_bg:$gray6;
 $btn_hover:$gray5;
 $btn_active:$gray7;
@@ -58,6 +58,8 @@ $tbl_th:$gray0;
 $boxshdow:0px 0px 5px rgba(0,0,0,0.15);
 $boxline:$gray4;
 
+/* 아이콘이미지 */
+$ico_url:url(../img/img_icon_v1.png);
 
 
 
@@ -70,6 +72,7 @@ html,body{ height:100%; margin:0; }
 .text_center{text-align: center !important}
 .text_right{text-align: right !important}
 
+
 .wrap{ overflow:hidden; position:relative; min-height: 100%; margin: 0; background:#f1f3f5;}
 .side{ position:absolute; top:0; bottom:0; width:$side_width; background:$side_bg;}
 .container{ width:($base_width - $side_width); margin:10px 0; margin-left:$side_width;}
@@ -77,9 +80,9 @@ html,body{ height:100%; margin:0; }
 
 .btn {
     &__wrap{}
-    &__comm{display:inline-block; margin:15px 0; padding: 6px 12px; border:1px solid $btn_bg; border-radius:3px; background:$btn_bg; color:#fff; transition:all .1s ease;
-        &:hover {background:$btn_hover; border-color:$btn_hover; text-decoration:none;}
-        &:active {background:$btn_active;}
+    &__comm{display:inline-block; margin:15px 0; padding: 6px 12px; border:1px solid $btn_line; border-bottom-width:3px; border-radius:2px; background:$btn_bg; color:#fff; transition:all .1s ease;
+        &:hover {background:$btn_hover; text-decoration:none;}
+        &:active {border-top-width:3px; border-bottom-width:1px;}
     }
 }
 
@@ -127,26 +130,47 @@ html,body{ height:100%; margin:0; }
 }
 
 /** 이미지 체크박스,라디오버튼 font-size 14px line-height 1.2 기준 **/
+/** ie8에서 선택자 문제로 인하여 .checked 와 .desabled를 추가 **/
 .checkbox{
-    &__comm{ display:inline-block; font-size:14px; cursor:pointer;
-        input[type="checkbox"] {display:none}
-        input[type="checkbox"] + span {display:inline-block; overflow:hidden; border:1px solid #333; width:10px;height:10px; text-indent:-9999px}
-        input[type="checkbox"]:checked + span {display:inline-block; border:1px solid #de0303; width:10px;height:10px;}
-        input[type="checkbox"]:disabled + span {display:inline-block; border:1px solid #999; width:10px;height:10px;}
+    &__comm{ display:inline-block; font-size:14px;
+        input[type="checkbox"] {display:none;
+            & + label{ cursor:pointer;}
+            & + label > i{ display:inline-block; overflow:hidden; width:14px; height:14px; margin-top:1px; margin-right:3px; background:$ico_url no-repeat -10px -10px; vertical-align:top; text-indent:-9999px;}
+            &:checked, &.checked{
+                + label > i {background-position:-40px -10px;}
+            }
+            &:disabled, &.disable {
+                + label { color:#a9a9a9;}
+                + label > i {background-position:-70px -10px;}
+            }
+        }
+        input[type="checkbox"]:checked:disabled {
+            + label > i {background-position:-100px -10px;}
+        }
     }
 }
 .radio{
-    &__comm{ display:inline-block; font-size:14px; cursor:pointer;
-        input[type="radio"] {display:none}
-        input[type="radio"] + span {display:inline-block; overflow:hidden; border:1px solid #333; width:10px;height:10px; text-indent:-9999px}
-        input[type="radio"]:checked + span {display:inline-block; border:1px solid #de0303; width:10px;height:10px;}
-        input[type="radio"]:disabled + span {display:inline-block; border:1px solid #999; width:10px;height:10px;}
+    &__comm{ display:inline-block; font-size:14px;
+        input[type="radio"] {display:none;
+            & + label{ cursor:pointer;}
+            & + label > i{ display:inline-block; overflow:hidden; width:14px; height:14px; margin-top:1px; margin-right:3px; background:$ico_url no-repeat -130px -10px; vertical-align:top; text-indent:-9999px;}
+            &:checked, &.checked{
+                + label > i {background-position:-160px -10px;}
+            }
+            &:disabled, &.disable {
+                + label { color:#a9a9a9;}
+                + label > i {background-position:-190px -10px;}
+            }
+        }
+        input[type="radio"]:checked:disabled {
+            + label > i {background-position:-220px -10px;}
+        }
     }
 }
 
 /** CSS3를 사용하여 ie9이상사용가능 추후 이미지 구현방법 검토 **/
 .toggle{
-    &__comm{display:inline-block; outline:0; line-height:1;
+    &__comm2{display:inline-block; outline:0; line-height:1;
         input[type="checkbox"] {display:none}
         input[type="checkbox"] + span {display: inline-block; position: relative; width: 40px; height: 20px; padding: 2px; border-radius: 13px; background: $gray4;  cursor: pointer; user-select: none; transition: all .4s ease;
             &:after { content: ""; display: block; position: relative; width: 50%; height: 100%; left: 0; border-radius: 13px; background: #fff; transition: all .2s ease;}
@@ -157,12 +181,26 @@ html,body{ height:100%; margin:0; }
         }
         input[type="checkbox"]:disabled + span {display:inline-block; border:1px solid #999; width:10px;height:10px;}
     }
+
+
+    &__comm{ display:inline-block; outline:0; line-height:1;
+        input[type="checkbox"] {display:none;}
+        input[type="checkbox"] + label{display: inline-block; position: relative; width: 40px; height: 20px; padding: 2px; border-radius: 13px; background: $gray4;  cursor: pointer; user-select: none; transition: all .4s ease;
+            &:after {content: ""; display: block; position: relative; width: 50%; height: 100%; left: 0; border-radius: 13px; background: #fff; transition: all .2s ease;}
+            &:before {display:none}
+        }
+        input[type="checkbox"]:checked + label {background: $gray6;
+            &:after {left:50%}
+        }
+        input[type="checkbox"]:disabled + label {display:inline-block; border:1px solid #999; width:10px;height:10px;}
+
+    }
 }
 
 
 .logo{
-    &__wrap{padding:20px 10px; background:$side_logo}
-    &__tit{font-size:16px; font-weight:bolder; }
+    &__wrap{display:block; padding:20px 10px; background:$side_logo}
+    &__tit{font-size:16px; font-weight:bolder; color:#fff;}
     &__ico {display:inline-block; width:18px; height:18px; background:#fff; vertical-align:top}
 }
 
@@ -171,18 +209,18 @@ html,body{ height:100%; margin:0; }
     &__list{border-bottom:1px solid $side_line; background:$side_bg;
         > li{display:block; border-top:1px solid $side_line;}
     }
-    &__sublist{padding:5px 0; border-top:1px solid $side_line; background:$gray6;
+    &__sublist {display:block; background:$side_sublist;
         > li{display:block;}
     }
-    &__link { display:block; padding:8px; text-decoration:none; transition:all .1s ease; cursor:pointer; 
+    &__link { display:block; padding:8px; padding-left:20px;  text-decoration:none; transition:all .1s ease; cursor:pointer; 
         &:hover, &:active{background:$side_hover; text-decoration:none}
     }
-    &__sublink { display:block; padding:5px 8px 5px 30px; font-size:13px; text-decoration:none; transition:all .1s ease; cursor:pointer;
-        &:hover, &:active{font-weight:bolder; text-decoration:none}
+    &__sublink { display:block;  padding: 8px;padding-left: 35px ; font-size:13px; text-decoration:none; transition:all .1s ease; cursor:pointer;
+        &:hover, &:active{background:$side_hover; text-decoration:none}
     }
 }
-.nav__list > li.active > .nav__link {background:$side_active !important}
-.nav__list > li.active > .nav__sublist  {background:$gray3 !important}
+/*.nav__list > li.active {background:$side_active !important}*/
+.nav__list > li.active > .nav__link  {font-weight:bolder; background:$side_active !important;}
 .nav__sublist > li.active > .nav__sublink {font-weight:bolder}
 
 .cont{
