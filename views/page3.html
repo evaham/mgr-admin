@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>핸드터미널 관리</title>
+    <title>핸드터미널 기기관리</title>
     <link href="../resource/css/common.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -23,151 +23,95 @@
                     <li class="active">
                         <a href="page2.html" class="nav__link">핸드터미널</a>
                         <ul class="nav__sublist">
-                            <li class="active"><a href="page2.html" class="nav__sublink">핸드터미널 관리</a></li>
-                            <li><a href="page3.html" class="nav__sublink">기기관리</a></li>
+                            <li><a href="page2.html" class="nav__sublink">핸드터미널 관리</a></li>
+                            <li class="active"><a href="page3.html" class="nav__sublink">기기관리</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="nav__link">MPOS</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav__link">MPOS</a>
+                        <a href="page4.html" class="nav__link">UI 화면</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="container">
             <div class="cont__wrap">
-                <p class="cont__tit">MPOS 이용현황</p>
-                <table class="tbl__comm">
-                    <colgroup>
-                        <col style="width:50%" />
-                        <col style="width:25%" />
-                        <col style="width:25%" />
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>서비스 타입</th>
-                            <th>서비스 시작일</th>
-                            <th>서비스 만료일</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text_center">무료 서비스 이용중</td>
-                            <td class="text_center">2019-06-01</td>
-                            <td class="text_center">2020-08-01</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <hr class="cont__hr cont__hr--noline" />
                 <p class="cont__tit">
-                    직원 권한 설정
+                    핸드터미널 기기관리
                     <span class="help__wrap">
                         <span class="help__icon">
                             <i class="material-icons">help_outline</i>
                         </span>
                         <span class="help__txt">
-                            - 직원별 매출속보/가격비교 권한을 관리하실 수 있습니다.<br />
-                            - 권한부여(체크)한 직원만 해당 기능을 이용할 수 있습니다.
+                            - 기기별 핸드터미널 앱 이용권한 관리가 가능합니다.<br />
+                            - 사용 설정(체크)된 기기만 핸드터미널 앱 이용이 가능합니다.<br />
+                            - 별칭을 설정하여 직원별 기기를 구분하실 수 있습니다.
                         </span>
                     </span>
                 </p>
                 <table class="tbl__comm tbl__comm--small">
                     <colgroup>
+                        <col style="width:20%" />
+                        <col style="width:20%" />
                         <col style="width:25%" />
-                        <col style="width:25%" />
-                        <col style="width:25%" />
-                        <col style="width:25%" />
+                        <col style="width:20%" />
+                        <col style="width:15%" />
                     </colgroup>
                     <thead>
                         <tr>
-                            <th>이름</th>
-                            <th>직원코드</th>
-                            <th>매출속보</th>
-                            <th>가격비교</th>
+                            <th>모델명</th>
+                            <th>기기고유번호</th>
+                            <th>별칭(사용자메모)</th>
+                            <th>최근접속일</th>
+                            <th>사용 설정</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" checked="checked" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td class="text_center">
-                                <label class="checkbox__comm">
-                                    <input type="checkbox" />
-                                    <span>체크박스이미지</span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" checked="checked" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" checked="checked" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td class="text_center">
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" />
-                                    <label></label>
+                            <td class="text_center">8M-G970N</td>
+                            <td class="text_center text_gray">A12341234123456789</td>
+                            <td class="text_center"><a href="#" class="cont__link text_blue" onclick="javascript:popupOpen1()">-</a></td>
+                            <td class="text_center text_gray">2019-06-01</td>
+                            <td class="text_center text_gray">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg1" />
+                                    <label for="tg1"><i></i></label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
+                            <td class="text_center">SM-N915S</td>
+                            <td class="text_center text_gray">B123456789</td>
+                            <td class="text_center"><a href="#" class="cont__link text_blue" onclick="javascript:popupOpen1()">부점장장장장장장</a></td>
+                            <td class="text_center text_gray">-</td>
+                            <td class="text_center text_gray">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg2" checked="checked" />
+                                    <label for="tg2"><i></i></label>
+                                </div>
                             </td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
+                        </tr>
+                        <tr>
+                            <td class="text_center">LM-V500N</td>
+                            <td class="text_center text_gray">C123456789</td>
+                            <td class="text_center"><a href="#" class="cont__link text_blue" onclick="javascript:popupOpen1()">김실장</a></td>
+                            <td class="text_center text_gray">2019-06-01</td>
+                            <td class="text_center text_gray">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg3" />
+                                    <label for="tg3"><i></i></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">LM-V409N</td>
+                            <td class="text_center text_gray">F123456789</td>
+                            <td class="text_center"><a href="#" class="cont__link text_blue" onclick="javascript:popupOpen1()">경리</a></td>
+                            <td class="text_center text_gray">2019-06-01</td>
+                            <td class="text_center text_gray">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg4" />
+                                    <label for="tg4"><i></i></label>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -179,5 +123,12 @@
         </div>
         <div class="footer"></div>
     </div>
+    <script>
+        function popupOpen1() {
+            var popUrl = "page5.html";
+            var popOption = "width=400, height=300, resizable=no, scrollbars=no, status=no;";
+            window.open(popUrl, "", popOption);
+        };
+    </script>
 </body>
 </html>

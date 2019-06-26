@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <title>핸드터미널 관리</title>
     <link href="../resource/css/common.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
@@ -28,20 +27,27 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="nav__link">MPOS</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav__link">MPOS</a>
+                        <a href="page4.html" class="nav__link">UI 화면</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="container">
             <div class="cont__wrap">
-                <p class="cont__tit">MPOS 이용현황</p>
+                <p class="cont__tit">
+                    핸드터미널 이용현황
+                    <span class="help__wrap">
+                        <i class="help__icon"></i>
+                        <span class="help__txt">
+                            - 매장 직원이 핸드터미널 앱 이용시, 매장인증 비밀번호를 입력해야 합니다.<br />
+                            - 인증용 매장 비밀번호를 꼭 설정하셔야 이용이 가능합니다.
+                        </span>
+                    </span>
+                </p>
                 <table class="tbl__comm">
                     <colgroup>
-                        <col style="width:50%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
                         <col style="width:25%" />
                         <col style="width:25%" />
                     </colgroup>
@@ -50,13 +56,17 @@
                             <th>서비스 타입</th>
                             <th>서비스 시작일</th>
                             <th>서비스 만료일</th>
+                            <th>매장인증 비밀번호</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text_center">무료 서비스 이용중</td>
+                            <td class="text_center">서비스 이용중</td>
                             <td class="text_center">2019-06-01</td>
-                            <td class="text_center">2020-08-01</td>
+                            <td class="text_center">2019-08-01</td>
+                            <td class="text_center">
+                                <a href="#" onclick="javascript: popupOpen1();" class="cont__link text_red">비밀번호 설정필요</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -65,12 +75,10 @@
                 <p class="cont__tit">
                     직원 권한 설정
                     <span class="help__wrap">
-                        <span class="help__icon">
-                            <i class="material-icons">help_outline</i>
-                        </span>
+                        <i class="help__icon"></i>
                         <span class="help__txt">
-                            - 직원별 매출속보/가격비교 권한을 관리하실 수 있습니다.<br />
-                            - 권한부여(체크)한 직원만 해당 기능을 이용할 수 있습니다.
+                            - 직원별 핸드터미널 앱 이용 권한을 관리하실 수 있습니다.<br />
+                            - 권한부여(체크)한 직원만 앱을 이용할 수 있습니다.
                         </span>
                     </span>
                 </p>
@@ -85,134 +93,75 @@
                         <tr>
                             <th>이름</th>
                             <th>직원코드</th>
-                            <th>매출속보</th>
-                            <th>가격비교</th>
+                            <th>최근접속일</th>
+                            <th>앱 이용 권한</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text_center">이미지체크</td>
-                            <td class="text_center">
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" id="c1" />
-                                    <label for="c1"><i>아이콘</i></label>
-                                </div>
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" id="c2" />
-                                    <label for="c2"><i>아이콘</i>라면</label>
-                                </div>
-                            </td>
-                            <td class="text_center">
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" id="c3" disabled="disabled" />
-                                    <label for="c3"><i>아이콘</i></label>
-                                </div>
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" id="c4" checked="checked" disabled="disabled" />
-                                    <label for="c4"><i>아이콘</i>라면</label>
-                                </div>
-                            </td>
-                            <td class="text_center">
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" id="c5" checked="checked" />
-                                    <label for="c5"><i>아이콘</i></label>
-                                </div>
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" id="c6" checked="checked" />
-                                    <label for="c6"><i>아이콘</i>라면</label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">이미지라디오</td>
-                            <td class="text_center">
-                                <div class="radio__comm">
-                                    <input type="radio" id="r1" name="rg1" />
-                                    <label for="r1"><i>아이콘</i></label>
-                                </div>
-                                <div class="radio__comm">
-                                    <input type="radio" id="r2" name="rg1" />
-                                    <label for="r2"><i>아이콘</i>라면</label>
-                                </div>
-                            </td>
-                            <td class="text_center">
-                                <div class="radio__comm">
-                                    <input type="radio" id="r3" name="rg2" disabled="disabled" />
-                                    <label for="r3"><i>아이콘</i></label>
-                                </div>
-                                <div class="radio__comm">
-                                    <input type="radio" id="r4" name="rg2" checked="checked" disabled="disabled" />
-                                    <label for="r4"><i>아이콘</i>라면</label>
-                                </div>
-                            </td>
-                            <td class="text_center">
-                                <div class="radio__comm">
-                                    <input type="radio" id="r5" name="rg3" checked="checked" />
-                                    <label for="r5"><i></i></label>
-                                </div>
-                                <div class="radio__comm">
-                                    <input type="radio" id="r6" name="rg3" />
-                                    <label for="r6"><i></i>라면</label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">이미지 토글</td>
+                            <td class="text_center">관리자</td>
+                            <td class="text_center">1</td>
+                            <td class="text_center text_gray">2019-06-01</td>
                             <td class="text_center">
                                 <div class="toggle__comm">
-                                    <input type="checkbox" id="tg1" />
-                                    <label for="tg1"></label>
+                                    <input type="checkbox" id="tg1" checked="checked" />
+                                    <label for="tg1"><i></i></label>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">김갑환</td>
+                            <td class="text_center">42</td>
+                            <td class="text_center text_gray">2019-06-11</td>
                             <td class="text_center">
                                 <div class="toggle__comm">
-                                    <input type="checkbox" id="tg2" checked="checked" />
-                                    <label for="tg2"></label>
-                                </div>
-                            </td>
-                            <td class="text_center">
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                            </td>
-                            <td class="text_center">
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td class="text_center">
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" />
-                                    <label></label>
+                                    <input type="checkbox" id="tg2" />
+                                    <label for="tg2"><i></i></label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
+                            <td class="text_center">나영석</td>
+                            <td class="text_center">13</td>
+                            <td class="text_center text_gray">-</td>
                             <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg3" checked="checked" />
+                                    <label for="tg3"><i></i></label>
+                                </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">다리우스</td>
+                            <td class="text_center">22</td>
+                            <td class="text_center text_gray">-</td>
                             <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg4" />
+                                    <label for="tg4"><i></i></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">라면땅</td>
+                            <td class="text_center">33</td>
+                            <td class="text_center text_gray">2019-05-13</td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg5" />
+                                    <label for="tg5"><i></i></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">마이동풍</td>
+                            <td class="text_center">21</td>
+                            <td class="text_center text_gray">2019-03-22</td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg6" checked="checked" />
+                                    <label for="tg6"><i></i></label>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -224,5 +173,12 @@
         </div>
         <div class="footer"></div>
     </div>
+    <script>
+        function popupOpen1() {
+            var popUrl = "page6.html";
+            var popOption = "width=400, height=300, resizable=no, scrollbars=no, status=no;";
+            window.open(popUrl, "", popOption);
+        };
+    </script>
 </body>
 </html>

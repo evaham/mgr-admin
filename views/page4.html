@@ -3,9 +3,210 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>UI view</title>
+    <link href="../resource/css/common.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
 </head>
 <body>
+    <div class="wrap">
+        <div class="side">
+            <a class="logo__wrap" href="page1.html">
+                <span class="logo__ico"></span>
+                <span class="logo__tit">매장앱관리</span>
+            </a>
+            <div class="nav__wrap">
+                <ul class="nav__list">
+                    <li>
+                        <a href="page1.html" class="nav__link">MPOS</a>
+                    </li>
+                    <li>
+                        <a href="page2.html" class="nav__link">핸드터미널</a>
+                        <ul class="nav__sublist">
+                            <li><a href="page2.html" class="nav__sublink">핸드터미널 관리</a></li>
+                            <li><a href="page3.html" class="nav__sublink">기기관리</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="page4.html" class="nav__link">UI 화면</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="cont__wrap">
 
+                <p class="cont__tit">체크박스/라디오</p>
+                <table class="tbl__comm tbl__comm--small">
+                    <colgroup>
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>이름</th>
+                            <th>기본</th>
+                            <th>diabled</th>
+                            <th>checked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text_center">이미지체크</td>
+                            <td class="text_center">
+                                <div class="checkbox__comm">
+                                    <input type="checkbox" id="c1" />
+                                    <label for="c1"><i></i></label>
+                                </div>
+                                <div class="checkbox__comm">
+                                    <input type="checkbox" id="c2" />
+                                    <label for="c2"><i></i>라면</label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="checkbox__comm">
+                                    <input type="checkbox" id="c3" disabled="disabled" />
+                                    <label for="c3"><i></i></label>
+                                </div>
+                                <div class="checkbox__comm">
+                                    <input type="checkbox" id="c4" checked="checked" disabled="disabled" />
+                                    <label for="c4"><i></i>라면</label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="checkbox__comm">
+                                    <input type="checkbox" id="c5" checked="checked" />
+                                    <label for="c5"><i></i></label>
+                                </div>
+                                <div class="checkbox__comm">
+                                    <input type="checkbox" id="c6" checked="checked" />
+                                    <label for="c6"><i></i>라면</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">이미지라디오</td>
+                            <td class="text_center">
+                                <div class="radio__comm">
+                                    <input type="radio" id="r1" name="rg1" />
+                                    <label for="r1"><i></i></label>
+                                </div>
+                                <div class="radio__comm">
+                                    <input type="radio" id="r2" name="rg1" />
+                                    <label for="r2"><i></i>라면</label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="radio__comm">
+                                    <input type="radio" id="r3" name="rg2" disabled="disabled" />
+                                    <label for="r3"><i></i></label>
+                                </div>
+                                <div class="radio__comm">
+                                    <input type="radio" id="r4" name="rg2" checked="checked" disabled="disabled" />
+                                    <label for="r4"><i></i>라면</label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="radio__comm">
+                                    <input type="radio" id="r5" name="rg3" checked="checked" />
+                                    <label for="r5"><i></i></label>
+                                </div>
+                                <div class="radio__comm">
+                                    <input type="radio" id="r6" name="rg3" />
+                                    <label for="r6"><i></i>라면</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">css3 토글</td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg3" />
+                                    <label for="tg3"></label>
+                                </div>
+                            </td>
+                            <td class="text_center"></td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg4" checked="checked" />
+                                    <label for="tg4"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr class="cont__hr" />
+                <p class="cont__tit">데이터가 없을경우</p>
+                <table class="tbl__comm tbl__comm--small">
+                    <colgroup>
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                        <col style="width:25%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>이름</th>
+                            <th>기본</th>
+                            <th>diabled</th>
+                            <th>checked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text_center" colspan="4">
+                                <div class="nodata__comm">
+                                    <i class="nodata__icon">아이콘</i>
+                                    <p class="nodata__tit">데이터가 없습니다.</p>
+                                    <p class="nodata__txt">설명이 들어가는 부분입니다.</p>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <hr class="cont__hr" />
+                <p class="cont__tit">택스트 색상</p>
+                <table class="tbl__comm tbl__comm--small">
+                    <colgroup>
+                        <col style="width:50%" />
+                        <col style="width:50%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>텍스트색상</th>
+                            <th>class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text_center">검정</td>
+                            <td class="text_center">기본</td>
+                        </tr>
+                        <tr>
+                            <td class="text_center text_gray">회색</td>
+                            <td class="text_center text_gray">text_gray</td>
+                        </tr>
+                        <tr>
+                            <td class="text_center text_red">빨강</td>
+                            <td class="text_center text_red">text_red</td>
+                        </tr>
+                        <tr>
+                            <td class="text_center text_blue">파랑</td>
+                            <td class="text_center text_blue">text_blue</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="btn__wrap text_center">
+                    <button class="btn__comm">저장</button>
+                    <button class="btn__comm btn__comm--line">취소</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
 </body>
 </html>

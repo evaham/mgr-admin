@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>MOPS</title>
     <link href="../resource/css/common.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 </head>
 <body>
@@ -28,10 +28,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="nav__link">MPOS</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav__link">MPOS</a>
+                        <a href="page4.html" class="nav__link">UI 화면</a>
                     </li>
                 </ul>
             </div>
@@ -62,11 +59,10 @@
                 </table>
 
                 <hr class="cont__hr cont__hr--noline" />
-                <p class="cont__tit">직원 권한 설정
+                <p class="cont__tit">
+                    직원 권한 설정
                     <span class="help__wrap">
-                        <span class="help__icon">
-                            <i class="material-icons">help_outline</i>
-                        </span>
+                        <i class="help__icon"></i>
                         <span class="help__txt">
                             - 직원별 매출속보/가격비교 권한을 관리하실 수 있습니다.<br />
                             - 권한부여(체크)한 직원만 해당 기능을 이용할 수 있습니다.
@@ -77,79 +73,39 @@
                     <colgroup>
                         <col style="width:25%" />
                         <col style="width:25%" />
-                        <col style="width:25%" />
-                        <col style="width:25%" />
+                        <col style="width:16.66%" />
+                        <col style="width:16.66%" />
+                        <col style="width:16.66%" />
                     </colgroup>
                     <thead>
                         <tr>
                             <th>이름</th>
                             <th>직원코드</th>
+                            <th>관리권한</th>
                             <th>매출속보</th>
                             <th>가격비교</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
+                            <td class="text_center">관리자</td>
+                            <td class="text_center">1</td>
                             <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" checked="checked" />
-                                    <span></span>
-                                </label>
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg11" />
+                                    <label for="tg1"><i></i></label>
+                                </div>
                             </td>
                             <td class="text_center">
-                                <label class="checkbox__comm">
-                                    <input type="checkbox" />
-                                    <span>체크박스이미지</span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" checked="checked" />
-                                    <span></span>
-                                </label>
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg11" />
+                                    <label for="tg1"><i></i></label>
+                                </div>
                             </td>
                             <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" checked="checked" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text_center">황정수</td>
-                            <td class="text_center">2</td>
-                            <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td class="text_center">
-                                <div class="checkbox__comm">
-                                    <input type="checkbox" />
-                                    <label></label>
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg2" checked="checked" />
+                                    <label for="tg2"><i></i></label>
                                 </div>
                             </td>
                         </tr>
@@ -157,16 +113,88 @@
                             <td class="text_center">황정수</td>
                             <td class="text_center">2</td>
                             <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg13" checked="checked" />
+                                    <label for="tg13"><i></i></label>
+                                </div>
                             </td>
                             <td class="text_center">
-                                <label class="toggle__comm">
-                                    <input type="checkbox" />
-                                    <span></span>
-                                </label>
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg3" checked="checked" />
+                                    <label for="tg3"><i></i></label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg4" />
+                                    <label for="tg4"><i></i></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg15" checked="checked" />
+                                    <label for="tg15"><i></i></label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg5" checked="checked" />
+                                    <label for="tg5"><i></i></label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg7" checked="checked" />
+                                    <label for="tg7"><i></i></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg18" checked="checked" />
+                                    <label for="tg18"><i></i></label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg8" checked="checked" />
+                                    <label for="tg8"><i></i></label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg1" checked="checked" />
+                                    <label for="tg1"><i></i></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text_center">황정수</td>
+                            <td class="text_center">2</td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg19" />
+                                    <label for="tg19"><i></i></label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg9" />
+                                    <label for="tg9"><i></i></label>
+                                </div>
+                            </td>
+                            <td class="text_center">
+                                <div class="toggle__comm">
+                                    <input type="checkbox" id="tg10" />
+                                    <label for="tg10"><i></i></label>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -178,5 +206,6 @@
         </div>
         <div class="footer"></div>
     </div>
+
 </body>
 </html>

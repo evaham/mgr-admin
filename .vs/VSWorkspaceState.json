@@ -3,9 +3,10 @@
     "",
     "\\resource",
     "\\resource\\css",
+    "\\resource\\img",
     "\\resource\\sass",
     "\\views"
   ],
-  "SelectedNode": "\\resource",
+  "SelectedNode": "\\views\\page6.html",
   "PreviewInSolutionExplorer": false
 }
