@@ -3,10 +3,9 @@
     "",
     "\\resource",
     "\\resource\\css",
-    "\\resource\\img",
     "\\resource\\sass",
     "\\views"
   ],
-  "SelectedNode": "\\views\\page6.html",
+  "SelectedNode": "\\resource\\sass\\color.scss",
   "PreviewInSolutionExplorer": false
 }

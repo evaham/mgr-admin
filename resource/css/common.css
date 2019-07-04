@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/** var.0.1.1 **/
+/* 초안색상 opencolor를 참고 */
 /* reset */
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button { margin: 0; padding: 0; }
 
@@ -24,20 +26,21 @@ a:active, a:hover { text-decoration: underline; }
 
 address, caption, cite, code, dfn, em, var { font-style: normal; font-weight: normal; }
 
-/* 크기제한 */
-/* 초안색상 opencolor를 참고 */
-/* side 색상처리 */
-/* container 색상처리 */
-/* btn 색상 */
-/* table 색상 */
-/* 박스 그림자 속성 */
-/* 아이콘이미지 */
-/** height100% 처리 **/
+/*애니메이션 효과*/
+@keyframes bounceIn { from, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { opacity: 0;
+    transform: scale3d(0.8, 0.8, 0.8); }
+  to { opacity: 1;
+    transform: scale3d(1, 1, 1); } }
+
+/* 초기값 */
 * { box-sizing: border-box; }
 
 html, body { height: 100%; margin: 0; }
 
-/** 전역사용 **/
+.fade { opacity: 0; -webkit-transition: opacity .15s linear; -o-transition: opacity .15s linear; transition: opacity .15s linear; }
+
+/** 전역사용 class **/
 .text_left { text-align: left !important; }
 
 .text_center { text-align: center !important; }
@@ -50,17 +53,8 @@ html, body { height: 100%; margin: 0; }
 
 .text_red { color: #e03131; }
 
-.wrap { overflow: hidden; position: relative; min-height: 100%; margin: 0; background: #f1f3f5; }
-
-.side { position: absolute; top: 0; bottom: 0; width: 150px; border-right: 1px solid #ddd; background: #fff; }
-
-.container { width: 610px; margin: 10px 0; margin-left: 150px; }
-
-.container--popup { width: 100%; margin: 10px 0; }
-
-.footer { display: none; position: absolute; bottom: 0; background: #333; height: 50px; }
-
-.btn__comm { display: inline-block; margin: 15px 0; padding: 4px 10px; border: 1px solid #1c7ed6; border-bottom-width: 3px; border-radius: 2px; background: #339af0; color: #fff; transition: all .1s ease; }
+/* 버튼 */
+.btn__comm { display: inline-block; margin: 15px 0; padding: 4px 10px; border: 1px solid #1c7ed6; border-bottom-width: 3px; border-radius: 2px; background: #339af0; color: #fff; transition: all .1s ease; cursor: pointer; }
 
 .btn__comm:hover { background: #4dabf7; text-decoration: none; }
 
@@ -70,34 +64,10 @@ html, body { height: 100%; margin: 0; }
 
 .btn__comm--line:hover { background: #e7f5ff; }
 
-.tbl__comm { width: 100%; border-spacing: 0; border-collapse: collapse; word-break: break-all; }
+/* 텍스트 입력창 */
+.tf__comm { display: inline-block; padding: 2px; border: 1px solid #ced4da; border-radius: 2px; font-size: 13px; background: #e7f5ff; }
 
-.tbl__comm > thead > tr > th { padding: 8px 6px; border: 1px solid #dee2e6; font-size: 13px; font-weight: normal; background: #f8f9fa; color: #868e96; }
-
-.tbl__comm > tbody > tr > th { padding: 12px 6px; border: 1px solid #dee2e6; font-size: 13px; font-weight: normal; background: #f8f9fa; color: #868e96; }
-
-.tbl__comm > tbody > tr > td { padding: 12px 6px; border: 1px solid #dee2e6; }
-
-.tbl__comm--small > thead > tr > th { padding: 8px 6px; }
-
-.tbl__comm--small > tbody > tr > th { padding: 8px 6px; }
-
-.tbl__comm--small > tbody > tr > td { padding: 8px 6px; }
-
-.checkbox234__comm input[type="checkbox"] { display: none; }
-
-.checkbox234__comm input[type="checkbox"] + label span { display: inline-block; width: 19px; height: 19px; margin: -2px 10px 0 0; vertical-align: middle; background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/heck_radio_sheet.png) left top no-repeat; cursor: pointer; }
-
-.checkbox234__comm input[type="checkbox"]:checked + label span { background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -19px top no-repeat; }
-
-.checkbox234__comm input[type="radio"] { display: none; }
-
-.checkbox234__comm input[type="radio"] + label span { display: inline-block; width: 19px; height: 19px; margin: -2px 10px 0 0; vertical-align: middle; background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -38px top no-repeat; cursor: pointer; }
-
-.checkbox234__comm input[type="radio"]:checked + label span { background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -57px top no-repeat; }
-
-/** 이미지 체크박스,라디오버튼 font-size 14px line-height 1.2 기준 **/
-/** ie8에서는 기본 스타일로 표시됨 **/
+/* 이미지 체크박스 */
 .checkbox__comm { display: inline-block; font-size: 14px; }
 
 .checkbox__comm input[type="checkbox"]:not(ie8) { display: none; }
@@ -108,12 +78,13 @@ html, body { height: 100%; margin: 0; }
 
 .checkbox__comm input[type="checkbox"]:not(ie8):checked + label > i { background-position: -40px -10px; }
 
-.checkbox__comm input[type="checkbox"]:not(ie8):disabled + label { color: #a9a9a9; }
+.checkbox__comm input[type="checkbox"]:not(ie8):disabled + label { color: #a9a9a9; cursor: not-allowed; }
 
 .checkbox__comm input[type="checkbox"]:not(ie8):disabled + label > i { background-position: -70px -10px; }
 
 .checkbox__comm input[type="checkbox"]:not(ie8):checked:disabled + label > i { background-position: -100px -10px; }
 
+/* 이미지 라디오버튼 */
 .radio__comm { display: inline-block; font-size: 14px; }
 
 .radio__comm input[type="radio"]:not(ie8) { display: none; }
@@ -124,15 +95,14 @@ html, body { height: 100%; margin: 0; }
 
 .radio__comm input[type="radio"]:not(ie8):checked + label > i { background-position: -160px -10px; }
 
-.radio__comm input[type="radio"]:not(ie8):disabled + label { color: #a9a9a9; }
+.radio__comm input[type="radio"]:not(ie8):disabled + label { color: #a9a9a9; cursor: not-allowed; }
 
 .radio__comm input[type="radio"]:not(ie8):disabled + label > i { background-position: -190px -10px; }
 
 .radio__comm input[type="radio"]:not(ie8):checked:disabled + label > i { background-position: -220px -10px; }
 
+/* 이미지 토글버튼 */
 /** CSS3를 사용하여 ie9이상사용가능 ie8이하는 기본으로 나옴 **/
-.toggle { /*&__comm2{ display:inline-block; font-size:14px; input[type="checkbox"]:not(ie8) {display:none; & + label{ cursor:pointer;} & + label > i{ display:inline-block; overflow:hidden; width:30px; height:14px; margin-top:1px; margin-right:3px; background:$ico_url no-repeat -10px -40px; vertical-align:top; text-indent:-9999px;} &:checked, &.checked{ + label > i {background-position:-60px -40px;} } } }*/ }
-
 .toggle__comm { display: inline-block; outline: 0; line-height: 1; }
 
 .toggle__comm input[type="checkbox"]:not(ie8) { display: none; }
@@ -147,10 +117,35 @@ html, body { height: 100%; margin: 0; }
 
 .toggle__comm input[type="checkbox"]:not(ie8):checked + label:after { left: 50%; }
 
-.toggle__comm input[type="checkbox"]:not(ie8):disabled + label { display: inline-block; border: 1px solid #999; width: 10px; height: 10px; }
+.toggle__comm input[type="checkbox"]:not(ie8):disabled + label { background: #dee2e6; cursor: not-allowed; }
 
-.tf__comm { display: inline-block; padding: 2px; border: 1px solid #ced4da; border-radius: 2px; font-size: 13px; background: #e7f5ff; }
+/* 테이블 */
+.tbl__comm { width: 100%; border-spacing: 0; border-collapse: collapse; word-break: break-all; }
 
+.tbl__comm > thead > tr > th { padding: 8px 6px; border: 1px solid #dee2e6; font-size: 13px; font-weight: normal; background: #f8f9fa; color: #868e96; }
+
+.tbl__comm > tbody > tr > th { padding: 12px 6px; border: 1px solid #dee2e6; font-size: 13px; font-weight: normal; background: #f8f9fa; color: #868e96; }
+
+.tbl__comm > tbody > tr > td { padding: 12px 6px; border: 1px solid #dee2e6; }
+
+.tbl__comm--small > thead > tr > th { padding: 8px 6px; }
+
+.tbl__comm--small > tbody > tr > th { padding: 8px 6px; }
+
+.tbl__comm--small > tbody > tr > td { padding: 8px 6px; }
+
+/* 레이아웃 */
+.wrap { overflow: hidden; position: relative; min-height: 100%; margin: 0; background: #f1f3f5; }
+
+.side { position: absolute; top: 0; bottom: 0; width: 150px; border-right: 1px solid #ddd; background: #fff; }
+
+.container { width: 610px; margin: 10px 0; margin-left: 150px; }
+
+.container--popup { width: 100%; margin: 10px 0; }
+
+.footer { display: none; position: absolute; bottom: 0; background: #333; height: 50px; }
+
+/* 로고 */
 .logo__wrap { display: block; padding: 16px 10px; background: #fff; }
 
 .logo__wrap:hover { text-decoration: none; }
@@ -159,6 +154,7 @@ html, body { height: 100%; margin: 0; }
 
 .logo__ico { display: inline-block; width: 28px; height: 18px; background: url(../img/img_icon_v1.png?13234) no-repeat -250px -10px; vertical-align: top; }
 
+/* 사이드 메뉴 */
 .nav__list { border-bottom: 1px solid #ddd; background: #fff; }
 
 .nav__list > li { display: block; border-top: 1px solid #ddd; }
@@ -173,15 +169,15 @@ html, body { height: 100%; margin: 0; }
 
 .nav__sublink { display: block; margin: 5px 5px 5px 15px; padding: 5px 5px 5px 15px; border: 1px solid #fbfbfb; border-radius: 3px; font-size: 12px; text-decoration: none; cursor: pointer; }
 
-.nav__sublink:hover, .nav__sublink:active { border-color: #ddd; background: #e7f5ff; text-decoration: none; transition: all .5s ease; }
+.nav__sublink:hover, .nav__sublink:active { border-color: #ddd; background: #e7f5ff; text-decoration: none; }
 
-/*.nav__list > li.active {background:$side_active !important}*/
 .nav__list > li.active > .nav__link { position: relative; font-weight: bolder; background: #4dabf7 !important; color: #fff; }
 
 .nav__sublist > li.active > .nav__sublink { position: relative; border-color: #4dabf7; font-weight: bolder; color: #1c7ed6; }
 
 .nav__sublist > li.active > .nav__sublink:before { content: ''; display: block; position: absolute; top: 50%; left: 6px; width: 4px; height: 4px; margin-top: -2px; border-radius: 5px; background: #1c7ed6; }
 
+/* 컨텐츠 */
 .cont__wrap { display: block; margin: 0 10px; padding: 1px 15px; border: 1px solid #ced4da; background: #fff; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); }
 
 .cont__tit { position: relative; margin: 15px 0 10px; font-weight: bolder; }
@@ -194,18 +190,20 @@ html, body { height: 100%; margin: 0; }
 
 .cont__link { text-decoration: underline; }
 
+/* 도움말 */
 .help__wrap { display: inline-block; vertical-align: top; }
 
 .help__icon { display: inline-block; width: 14px; height: 14px; margin-top: 2px; background: url(../img/img_icon_v1.png?13234) -10px -70px no-repeat; cursor: pointer; }
 
 .help__icon .material-icons { display: none; font-size: 18px; vertical-align: top; }
 
-.help__txt { display: none; position: absolute; margin: 10px 0 0 -30px; padding: 10px; border: 1px solid #adb5bd; border-radius: 5px; font-size: 12px; font-weight: normal; background: #fff; line-height: 1.3; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); z-index: 10; }
+.help__txt { display: none; position: absolute; margin: 10px 0 0 -30px; padding: 10px; border: 1px solid #339af0; border-radius: 5px; font-size: 12px; font-weight: normal; background: #fff; line-height: 1.3; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5); z-index: 10; }
 
 .help__txt:before { content: ''; display: block; position: absolute; top: -10px; left: 28px; width: 18px; height: 10px; background: url(../img/img_icon_v1.png?13234) -40px -70px no-repeat; }
 
-.help__wrap:hover .help__txt { display: block !important; transition: all .1s ease; }
+.help__wrap:hover .help__txt { display: block !important; animation-duration: 0.1s; animation-name: bounceIn; }
 
+/* 데이터가 없을경우 */
 .nodata__comm { display: block; padding: 30px 0; color: #868e96; }
 
 .nodata__icon { display: block; width: 30px; height: 30px; margin: 0 auto 10px; background: url(../img/img_icon_v1.png?13234) -10px -100px no-repeat; text-indent: -9999px; }

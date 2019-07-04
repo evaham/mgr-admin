@@ -1,4 +1,7 @@
-﻿/* reset */
+﻿/** var.0.1.1 **/
+@import "color.scss";
+
+/* reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}
 fieldset,img {border:0 none}
 dl,ul,ol,menu,li {list-style:none}
@@ -12,78 +15,26 @@ a {color:#333;text-decoration:none}
 a:active, a:hover {text-decoration:underline}
 address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
 
-/* 크기제한 */
+//크기 변수 
 $base_width:760px;
 $side_width:150px;
 
-
-/* 초안색상 opencolor를 참고 */
-$gray0:#f8f9fa;
-$gray1:#f1f3f5;
-$gray2:#e9ecef;
-$gray3:#dee2e6;
-$gray4:#ced4da;
-$gray5:#adb5bd;
-$gray6:#868e96;
-$gray7:#495057;
-$gray8:#343a40;
-$gray9:#212529;
-
-$blue0:#e7f5ff;
-$blue1:#d0ebff;
-$blue2:#a5d8ff;
-$blue3:#74c0fc;
-$blue4:#4dabf7;
-$blue5:#339af0;
-$blue6:#228be6;
-$blue7:#1c7ed6;
-$blue8:#1971c2;
-$blue9:#1864ab;
-
-$red6:#fa5252;
-$red7:#f03e3e;
-$red8:#e03131;
-$red9:#c92a2a;
-
-
-
-
-
-/* side 색상처리 */
-$side_bg:#fff;
-$side_active:$blue4;
-$side_hover:$blue0;
-$side_sublist:#fbfbfb;
-$side_logo:#fff;
-
-/* container 색상처리 */
-$cont_bg:$gray3;
-$cont_hr:$gray3;
-
-/* btn 색상 */
-$btn_line:$blue7;
-$btn_bg:$blue5;
-$btn_hover:$blue4;
-$btn_active:$blue7;
-
-/* table 색상 */
-$tbl_line:$gray3;
-$tbl_th:$gray0;
-
-/* 박스 그림자 속성 */
-$boxshdow:0px 0px 5px rgba(0,0,0,0.15);
-$boxline:$gray4;
-
-/* 아이콘이미지 */
+//아이콘이미지 */
 $ico_url:url(../img/img_icon_v1.png?13234);
 
+/*애니메이션 효과*/
+@keyframes bounceIn {
+    from, to {animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);}
+    0% {opacity: 0;transform: scale3d(0.8, 0.8, 0.8);}    
+    to {opacity: 1;transform: scale3d(1, 1, 1);}
+}
 
-
-/** height100% 처리 **/
+/* 초기값 */
 *{box-sizing:border-box}
 html,body{ height:100%; margin:0; }
+.fade {opacity: 0;  -webkit-transition: opacity .15s linear;  -o-transition: opacity .15s linear;  transition: opacity .15s linear;}
 
-/** 전역사용 **/
+/** 전역사용 class **/
 .text_left{text-align: left !important}
 .text_center{text-align: center !important}
 .text_right{text-align: right !important}
@@ -91,72 +42,26 @@ html,body{ height:100%; margin:0; }
 .text_blue{color:$blue8}
 .text_red{color:$red8}
 
-
-.wrap{ overflow:hidden; position:relative; min-height: 100%; margin: 0; background:#f1f3f5;}
-.side{ position:absolute; top:0; bottom:0; width:$side_width; border-right:1px solid #ddd; background:$side_bg;}
-.container{ width:($base_width - $side_width); margin:10px 0; margin-left:$side_width;
-    &--popup{width:100%; margin:10px 0}
-}
-.footer{ display:none; position:absolute; bottom:0; background:#333; height:50px; }
-
+/* 버튼 */
 .btn {
     &__wrap{}
-    &__comm{display:inline-block; margin:15px 0; padding: 4px 10px; border:1px solid $btn_line; border-bottom-width:3px; border-radius:2px; background:$btn_bg; color:#fff; transition:all .1s ease;
-        &:hover {background:$btn_hover; text-decoration:none;}
+    &__comm{display:inline-block; margin:15px 0; padding: 4px 10px; border:1px solid $blue7; border-bottom-width:3px; border-radius:2px; background:$blue5; color:#fff; transition:all .1s ease;cursor:pointer;
+        &:hover {background:$blue4; text-decoration:none;}
         &:active {border-top-width:3px; border-bottom-width:1px;}
-        &--line{border-color:$btn_bg; background-color:#fff; color:$blue6;
+        &--line{border-color:$blue5; background-color:#fff; color:$blue6;
             &:hover{background:$blue0}
         }
     }
 }
 
-.tbl{
-    &__comm{width:100%; border-spacing: 0; border-collapse: collapse; word-break:break-all;
-        > thead > tr > th {padding:8px 6px; border:1px solid $tbl_line; font-size:13px; font-weight:normal; background:$tbl_th; color:$gray6}
-        > tbody > tr > th {padding:12px 6px; border:1px solid $tbl_line; font-size:13px; font-weight:normal; background:$tbl_th; color:$gray6}
-        > tbody > tr > td {padding:12px 6px; border:1px solid $tbl_line}
-        &--small{
-            > thead > tr > th {padding:8px 6px;}
-            > tbody > tr > th {padding:8px 6px;}
-            > tbody > tr > td {padding:8px 6px;}
-        }
-    }
+/* 텍스트 입력창 */
+.tf {
+    &__comm { display:inline-block; padding:2px; border:1px solid $gray4; border-radius:2px; font-size:13px; background:$blue0;  }
 }
 
-.checkbox234{
-    &__comm {
-        input[type="checkbox"] {display:none}
-        
-        input[type="checkbox"] + label span {display:inline-block;width:19px;height:19px;margin:-2px 10px 0 0;vertical-align:middle;background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/heck_radio_sheet.png) left top no-repeat;cursor:pointer;
-        }
-
-        input[type="checkbox"]:checked + label span {
-            background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -19px top no-repeat;
-        }
-
-        input[type="radio"] {
-            display:none;
-        }
-
-        input[type="radio"] + label span {
-            display:inline-block;
-            width:19px;
-            height:19px;
-            margin:-2px 10px 0 0;
-            vertical-align:middle;
-            background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -38px top no-repeat;
-            cursor:pointer;
-        }
-
-        input[type="radio"]:checked + label span {
-            background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -57px top no-repeat;
-        }
-    }
-
-}
-
-/** 이미지 체크박스,라디오버튼 font-size 14px line-height 1.2 기준 **/
-/** ie8에서는 기본 스타일로 표시됨 **/
+/* 이미지 체크박스 */
+// 이미지 체크박스,라디오버튼 font-size 14px line-height 1.2 기준 */
+// ie8에서는 기본 스타일로 표시됨 */
 .checkbox{
     &__comm{ display:inline-block; font-size:14px;
         input[type="checkbox"]:not(ie8) {display:none;
@@ -166,7 +71,7 @@ html,body{ height:100%; margin:0; }
                 + label > i {background-position:-40px -10px;}
             }
             &:disabled {
-                + label { color:#a9a9a9;}
+                + label { color:#a9a9a9; cursor:not-allowed}
                 + label > i {background-position:-70px -10px;}
             }
         }
@@ -175,6 +80,7 @@ html,body{ height:100%; margin:0; }
         }
     }
 }
+/* 이미지 라디오버튼 */
 .radio{
     &__comm{ display:inline-block; font-size:14px;
         input[type="radio"]:not(ie8) {display:none;
@@ -184,7 +90,7 @@ html,body{ height:100%; margin:0; }
                 + label > i {background-position:-160px -10px;}
             }
             &:disabled{
-                + label { color:#a9a9a9;}
+                + label { color:#a9a9a9; cursor:not-allowed}
                 + label > i {background-position:-190px -10px;}
             }
         }
@@ -194,18 +100,9 @@ html,body{ height:100%; margin:0; }
     }
 }
 
+/* 이미지 토글버튼 */
 /** CSS3를 사용하여 ie9이상사용가능 ie8이하는 기본으로 나옴 **/
 .toggle{
-    /*&__comm2{ display:inline-block; font-size:14px;
-        input[type="checkbox"]:not(ie8) {display:none;
-            & + label{ cursor:pointer;}
-            & + label > i{ display:inline-block; overflow:hidden; width:30px; height:14px; margin-top:1px; margin-right:3px; background:$ico_url no-repeat -10px -40px; vertical-align:top; text-indent:-9999px;}
-            &:checked, &.checked{
-                + label > i {background-position:-60px -40px;}
-            }
-        }
-    }*/
-
     &__comm{ display:inline-block; outline:0; line-height:1;
         input[type="checkbox"]:not(ie8) {display:none;
             & + label{display: inline-block; position: relative; width: 30px; height: 15px; padding: 2px; border-radius: 13px; background: $gray4;  cursor: pointer; user-select: none; transition: all .4s ease;
@@ -215,68 +112,87 @@ html,body{ height:100%; margin:0; }
             &:checked + label {background: $blue6;
                 &:after {left:50%}
             }
-            &:disabled + label {display:inline-block; border:1px solid #999; width:10px;height:10px;}
+            &:disabled + label {background:$gray3; cursor:not-allowed}
+        }
+    }
+}
+/* 테이블 */
+.tbl{
+    &__comm{width:100%; border-spacing: 0; border-collapse: collapse; word-break:break-all;
+        > thead > tr > th {padding:8px 6px; border:1px solid $gray3; font-size:13px; font-weight:normal; background:$gray0; color:$gray6}
+        > tbody > tr > th {padding:12px 6px; border:1px solid $gray3; font-size:13px; font-weight:normal; background:$gray0; color:$gray6}
+        > tbody > tr > td {padding:12px 6px; border:1px solid $gray3}
+        &--small{
+            > thead > tr > th {padding:8px 6px;}
+            > tbody > tr > th {padding:8px 6px;}
+            > tbody > tr > td {padding:8px 6px;}
         }
     }
 }
 
-.tf {
-    &__comm { display:inline-block; padding:2px; border:1px solid $gray4; border-radius:2px; font-size:13px; background:$blue0;  }
+/* 레이아웃 */
+.wrap{ overflow:hidden; position:relative; min-height: 100%; margin: 0; background:#f1f3f5;}
+.side{ position:absolute; top:0; bottom:0; width:$side_width; border-right:1px solid #ddd; background:#fff;}
+.container{ width:($base_width - $side_width); margin:10px 0; margin-left:$side_width;
+    &--popup{width:100%; margin:10px 0}
 }
+.footer{ display:none; position:absolute; bottom:0; background:#333; height:50px; }
 
-
-
+/* 로고 */
 .logo{
-    &__wrap{display:block; padding:16px 10px; background:$side_logo;
+    &__wrap{display:block; padding:16px 10px; background:#fff;
         &:hover{text-decoration:none}
     }
     &__tit{font-size:16px; font-weight:bolder;}
     &__ico {display:inline-block; width:28px; height:18px; background:$ico_url no-repeat -250px -10px; vertical-align:top}
 }
 
+/* 사이드 메뉴 */
 .nav{
     &__wrap{}
-    &__list{border-bottom:1px solid #ddd; background:$side_bg;
+    &__list{border-bottom:1px solid #ddd; background:#fff;
         > li{display:block; border-top:1px solid #ddd;}
     }
-    &__sublist {display:block; border-top:1px solid #ddd; border-bottom:1px solid #fbfbfb; background:$side_sublist;
+    &__sublist {display:block; border-top:1px solid #ddd; border-bottom:1px solid #fbfbfb; background:#fbfbfb;
         > li{display:block;}
     }
     &__link { display:block; padding:8px; padding-left:15px;  text-decoration:none; cursor:pointer; 
-        &:hover, &:active{background:$side_hover; text-decoration:none;}
+        &:hover, &:active{background:$blue0; text-decoration:none;}
     }
     &__sublink { display:block; margin:5px 5px 5px 15px; padding: 5px 5px 5px 15px; border:1px solid #fbfbfb; border-radius:3px; font-size:12px; text-decoration:none; cursor:pointer;
-        &:hover, &:active{ border-color:#ddd; background:$side_hover; text-decoration:none; transition:all .5s ease;}
+        &:hover, &:active{ border-color:#ddd; background:$blue0; text-decoration:none; }
     }
 }
-/*.nav__list > li.active {background:$side_active !important}*/
-.nav__list > li.active > .nav__link  {position:relative; font-weight:bolder; background:$side_active !important; color:#fff;}
+.nav__list > li.active > .nav__link  {position:relative; font-weight:bolder; background:$blue4 !important; color:#fff;}
 .nav__sublist > li.active > .nav__sublink {position:relative; border-color:$blue4;font-weight:bolder; color:$blue7;
-    &:before{content:''; display:block; position:absolute; top:50%; left:6px; width:4px; height:4px; margin-top:-2px; border-radius:5px; background:$blue7;}
+    &:before{content:''; display:block; position:absolute; top:50%; left:6px; width:4px; height:4px; margin-top:-2px; border-radius:5px; background:$blue7; }
 }
 
+/* 컨텐츠 */
 .cont{
-    &__wrap{display:block; margin:0 10px; padding:1px 15px; border:1px solid $boxline; background:#fff; box-shadow:$boxshdow;}
+    &__wrap{display:block; margin:0 10px; padding:1px 15px; border:1px solid $gray4; background:#fff; box-shadow:0px 0px 5px rgba(0,0,0,0.15);}
     &__tit{position:relative; margin:15px 0 10px; font-weight:bolder;
         &:before{content:''; display:inline-block; width:3px; height:10px; margin-right:5px; background:#888;}
     }
-    &__hr {margin:15px 0; border:none; height:1px; background:$cont_hr;
+    &__hr {margin:15px 0; border:none; height:1px; background:$gray3;
         &--noline{background:none}
     }
     &__link{text-decoration:underline}
 }
 
+/* 도움말 */
 .help{
     &__wrap{ display:inline-block; vertical-align:top;}
     &__icon{ display:inline-block; width:14px; height:14px; margin-top:2px; background:$ico_url -10px -70px no-repeat; cursor:pointer;
         .material-icons{display:none; font-size:18px; vertical-align:top}
     } 
-    &__txt {display:none; position:absolute; margin:10px 0 0 -30px; padding:10px; border:1px solid $gray5; border-radius:5px; font-size:12px; font-weight:normal; background:#fff; line-height:1.3; box-shadow:$boxshdow; z-index:10;
+    &__txt {display:none; position:absolute; margin:10px 0 0 -30px; padding:10px; border:1px solid $blue5; border-radius:5px; font-size:12px; font-weight:normal; background:#fff; line-height:1.3; box-shadow:0px 1px 2px rgba(0, 0, 0, 0.5); z-index:10;
         &:before {content:''; display:block; position:absolute; top:-10px; left:28px; width:18px; height:10px; background:$ico_url -40px -70px no-repeat  }
     }
-    &__wrap:hover .help__txt{display:block !important; transition:all .1s ease;}
+    &__wrap:hover .help__txt{display:block !important; animation-duration:0.1s; animation-name: bounceIn;}
 }
 
+/* 데이터가 없을경우 */
 .nodata{
     &__comm {display:block; padding:30px 0; color:$gray6;}
     &__icon {display:block; width:30px; height:30px; margin:0 auto 10px; background:$ico_url -10px -100px no-repeat;  text-indent:-9999px}
